@@ -19,14 +19,24 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_tasks')
-def get_tasks():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+@app.route('/main_page')
+def main_page():
+    return render_template("index.html", recipes=mongo.db.recipes.find())
+
+@app.route('/share_recipe')
+def share_recipe():
+    return render_template('share_recipe.html', recipes=mongo.db.recipes.find())
+
+@app.route('/upload_recipe', methods=['POST'])
+def upload_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('main_page'))
 
 
-@app.route('/add_meal')
-def add_task():
-    return render_template('addmeal.html')
+@app.route('/menu_list')
+def meals():
+    return render_template('meals.html', recipes=mongo.db.recipes.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
