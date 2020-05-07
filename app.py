@@ -34,9 +34,13 @@ def upload_recipe():
     return redirect(url_for('share_recipe'))
 
 
-@app.route('/menu_list')
+@app.route('/meals')
 def meals():
     return render_template('meals.html', recipes=mongo.db.recipes.find())
+
+@app.route('/carta')
+def carta():
+    return render_template('recipe_list.html', recipes=mongo.db.recipes.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
