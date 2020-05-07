@@ -31,7 +31,7 @@ def share_recipe():
 def upload_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('main_page'))
+    return redirect(url_for('share_recipe'))
 
 
 @app.route('/menu_list')
