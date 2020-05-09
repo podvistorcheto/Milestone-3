@@ -22,25 +22,24 @@ main = Blueprint('main', __name__)
 
 
 @app.route('/')
-@app.route('/main_page')
-def main_page():
-    return render_template("index.html", recipes=mongo.db.recipes.find())
+def index():
+    return render_template('render.html')
 
 @app.route('/profile')
 def profile():
-    return 'Profile'
+    return render_template('profile.html')
 
 @app.route('/login')
 def login():
-    return 'Login'
+    return render_template('login.html')
 
 @app.route('/signup')
 def signup():
-    return 'Signup'
+        return render_template('signup.html')
 
 @app.route('/logout')
 def logout():
-    return 'Logout'
+    return 'Log out successfull'
 
 @app.route('/share_recipe')
 def share_recipe():
@@ -50,7 +49,7 @@ def share_recipe():
 def upload_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('share_recipe'))
+    return redirect(url_for('meals'))
 
 
 @app.route('/meals')
