@@ -1,3 +1,23 @@
+"""{% extends 'index.html' %}
+{% block content %}
+{% for recipe in recipes %}
+
+    {{recipe.name}}
+    {{recipe.description}}
+    {{recipe.time_to_prepare}}
+    {{recipe.ingredients}}
+    {{recipe.spices}}   
+    {{recipe.cooking}}
+    {{recipe.time_of_the_day}}
+    {{recipe.cooked_meal}}
+
+
+{% endfor %}
+{% endblock %}"""
+
+
+
+
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 Welcome podvistorcheto,
