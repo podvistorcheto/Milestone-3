@@ -1,8 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, Blueprint
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
+
 
 
 if path.exists("env.py"):
@@ -17,11 +18,29 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
+main = Blueprint('main', __name__)
+
 
 @app.route('/')
 @app.route('/main_page')
 def main_page():
     return render_template("index.html", recipes=mongo.db.recipes.find())
+
+@app.route('/profile')
+def profile():
+    return 'Profile'
+
+@app.route('/login')
+def login():
+    return 'Login'
+
+@app.route('/signup')
+def signup():
+    return 'Signup'
+
+@app.route('/logout')
+def logout():
+    return 'Logout'
 
 @app.route('/share_recipe')
 def share_recipe():
