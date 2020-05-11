@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, Blueprint
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -36,6 +37,23 @@ def login():
 @app.route('/signup')
 def signup():
         return render_template('signup.html')
+
+
+@app.route('/signup', methods=['POST'])
+def signup_post():
+    #code to validate and add user to database goes here
+    users = mongo.db.users
+    users.insert_one(request.form.to_dict())
+
+    """user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+
+    # create new user with the form data. Hash the password so plaintext version isn't saved.
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))"""
+
+
+    return redirect(url_for('login'))
+
+
 
 @app.route('/logout')
 def logout():
