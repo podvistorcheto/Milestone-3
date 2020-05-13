@@ -8,12 +8,12 @@
                 <i class="material-icons">add</i>
             <div>
 			<div class="col s9">
-				<strong>{{recipe.name}} - {{recipe.description}}</strong>
+				<strong>{{recipe.name}} - {{recipe.time_to_prepare}}</strong>
 			</div>
 			<div class="col s2">
             <div class="inline_actions">
-				<a href="{{url_for('review_meals', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small red">Review</a>
-				<a class="waves-effect waves-light btn btn-small">Upload Photo</a>
+				<a href="{{url_for('review_meals', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small red">Rate</a>
+				<a href="{{url_for('delete_recipe', meal_id=recipe._id)}}"class="waves-effect waves-light btn btn-small">Remove</a>
             </div>
 			</div>
 		</div>

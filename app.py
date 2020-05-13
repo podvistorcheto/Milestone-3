@@ -33,6 +33,8 @@ def profile():
     
     return render_template('profile.html')
 
+""" login form with user fetching with mongodb """
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -129,15 +131,17 @@ def meals():
 def review_meals(meal_id):
     the_review = mongo.db.recipes.find_one({"_id": ObjectId(meal_id)})
     reviews_data = mongo.db.reviews.find()
-    return render_template("ratings.html", recipes=the_review, revies=reviews_data)
+    return render_template("ratings.html", recipes=the_review, reviews=reviews_data)
+
 
 @app.route('/carta')
 def carta():
     return render_template('recipe_list.html', recipes=mongo.db.recipes.find())
 
-@app.route('/delete_recipe/<task_id>')
-def delete_recipe():
-    mongo.db.recipes.remove({'_id:': ObjectId(task_id)})
+
+@app.route('/delete_recipe/<meal_id>')
+def delete_recipe(meal_id):
+    mongo.db.recipes.delete_one({'_id': ObjectId(meal_id)})
     return redirect(url_for('meals'))
 
 
