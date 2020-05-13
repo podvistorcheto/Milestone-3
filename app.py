@@ -29,7 +29,7 @@ def index():
 @app.route('/profile')
 def profile():
     if 'email' in session:
-        return "You are logged in as {}".format(session["email"])
+        return "Welcome!<br>You are logged in as {}".format(session["email"])
     
     return render_template('profile.html')
 
@@ -78,6 +78,36 @@ def upload_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('meals'))
+
+@app.route('/file_upload')
+def file_upload():
+        return '''
+            <form method='POST' action='/create' enctype='multipart/form-data'> 
+                <input type='text' name='username'>
+                <input type='file' name='profile_image'>
+                <input type='submit'>
+            </form>
+        '''
+
+@app.route('/create', methods=['POST'])
+def create():
+    if 'profile_image' in request.files:
+        profile_image = request.files['profile_image']
+        mongo.save_file(profile_image.filename, profile_image)
+        mongo.db.photos.insert({'username' : request.form.get('username'), 'profile_image_name' : profile_image.filename})
+    
+    return 'Done!'
+
+@app.route('/gallery/<filename>')
+def gallery(filename):
+    return mongo.send_file(filename)
+
+
+
+
+
+
+
 
 
 @app.route('/meals')
