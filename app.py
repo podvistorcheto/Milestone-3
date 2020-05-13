@@ -79,6 +79,8 @@ def upload_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('meals'))
 
+
+""" create route for the html form to upload files"""
 @app.route('/file_upload')
 def file_upload():
         return '''
@@ -89,6 +91,8 @@ def file_upload():
             </form>
         '''
 
+
+""" connect the upload to mongodb collection """
 @app.route('/create', methods=['POST'])
 def create():
     if 'profile_image' in request.files:
@@ -98,12 +102,19 @@ def create():
     
     return 'Done!'
 
+""" retrieve the picture from mongodb collection """
 @app.route('/gallery/<filename>')
 def gallery(filename):
     return mongo.send_file(filename)
 
 
-
+@app.route('/user_a/<username>')
+def user_a(username):
+     user_a = mongo.db.photos.find_one_or_404({'username': username})
+     return f'''
+        <h3>{username}<h3>
+        <img src="{url_for('gallery', filename=user_a['profile_image_name'])}">
+        '''
 
 
 
