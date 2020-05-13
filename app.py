@@ -29,7 +29,7 @@ def index():
 @app.route('/profile')
 def profile():
     if 'email' in session:
-        return "Welcome!<br>You are logged in as {}".format(session["email"])
+        return "Welcome!<br><br>You are logged in as {}".format(session["email"])
     
     return render_template('profile.html')
 
@@ -102,12 +102,12 @@ def create():
     
     return 'Done!'
 
-""" retrieve the picture from mongodb collection """
+""" retrieve pic from mongodb step 1 - creates an endpoint that allows you to retreive data from"""
 @app.route('/gallery/<filename>')
 def gallery(filename):
     return mongo.send_file(filename)
 
-
+"""step 2 call the file from the endpoint to display for the user"""
 @app.route('/user_a/<username>')
 def user_a(username):
      user_a = mongo.db.photos.find_one_or_404({'username': username})
@@ -125,9 +125,21 @@ def user_a(username):
 def meals():
     return render_template('meals.html', recipes=mongo.db.recipes.find())
 
+@app.route('/review_meals/<meal_id>')
+def review_meals(meal_id):
+    the_review = mongo.db.recipes.find_one({"_id": ObjectId(meal_id)})
+    reviews_data = mongo.db.reviews.find()
+    return render_template("ratings.html", recipes=the_review, revies=reviews_data)
+
 @app.route('/carta')
 def carta():
     return render_template('recipe_list.html', recipes=mongo.db.recipes.find())
+
+@app.route('/delete_recipe/<task_id>')
+def delete_recipe():
+    mongo.db.recipes.remove({'_id:': ObjectId(task_id)})
+    return redirect(url_for('meals'))
+
 
 if __name__ == '__main__':
     app.secret_key = 'gatanka'
