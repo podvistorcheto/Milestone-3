@@ -25,6 +25,9 @@ mongo = PyMongo(app)
 def index():
     return render_template('render.html')
 
+@app.route('/index')
+def landing_page():
+    return render_template('index.html')
 
 @app.route('/profile')
 def profile():
@@ -75,10 +78,13 @@ def logout():
 def share_recipe():
     return render_template('share_recipe.html', recipes=mongo.db.recipes.find())
 
-@app.route('/upload_recipe', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
+    manage_upload = request.form.to_dict()
+    if manage_upload is None:
+        return 'Please fill in all fields!'
     return redirect(url_for('meals'))
 
 
@@ -136,7 +142,7 @@ def review_meals(meal_id):
 
 @app.route('/carta')
 def carta():
-    return render_template('recipe_list.html', recipes=mongo.db.recipes.find())
+    return render_template('view_recipe.html', recipes=mongo.db.recipes.find())
 
 
 @app.route('/delete_recipe/<meal_id>')

@@ -7,12 +7,12 @@
         <form onclick="validate()" action="{{ url_for('signup') }}" method="POST">
             <div class="field">
                 <div class="control">
-                    <input id="email" class="input is-large form-control" type="email" name="email" placeholder="Email" autofocus="">
+                    <input id="email" required class="materialize-textarea input is-large form-control validate" type="email" name="email" placeholder="Email" autofocus="">
                 </div>
             </div>
             <div class="field">
                 <div class="control">
-                    <input  id="password" class="input is-large form-control" type="password" name="password" placeholder="Password">
+                    <input  id="password" required class="materialize-textarea input is-large form-control validate" type="password" name="password" placeholder="Password">
                 </div>
             </div>
 

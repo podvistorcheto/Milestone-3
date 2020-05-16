@@ -16,6 +16,104 @@
 {% endblock %}"""
 
 
+-----------------
+<div class="row">
+			<div class="input-field col s12"><i class="material-icons prefix">explore</i>
+				<select id="region" class="region_name">
+		      <option value="" disabled selected>Choose Region</option>
+		      <option value="1">East Medditerenian</option>
+		      <option value="2">West Medditerenian</option>
+		      <option value="3">Central and South America</option>
+              <option value="1">North Europe</option>
+		      <option value="2">South and East Asia</option>
+              <option value="2">Central Asia</option>
+		      <option value="3">Pacific</option>
+              <option value="3">Other(use )</option>
+		    </select>
+				<label>Culinary Region</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="time_to_prepare" name="time_to_prepare" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Time to prepare</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="ingredients" name="ingredients" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Ingredients and Spices</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">edit</i>
+				<textarea id="cooking" name="cooking" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">How to prepare and cook it?</label>
+			</div>
+		</div>
+		</div>
+			<div class="collapsible-body">
+				<span>{{recipe.cooked_meal}}</span>
+			</div>
+
+-----------------------
+
+<!-- <div class="row">
+			<div class="input-field col s12"><i class="material-icons prefix">explore</i>
+				<select id="region" class="region_name">
+		      <option value="" disabled selected>Choose Region</option>
+		      <option value="1">East Medditerenian</option>
+		      <option value="2">West Medditerenian</option>
+		      <option value="3">Central and South America</option>
+              <option value="1">North Europe</option>
+		      <option value="2">South and East Asia</option>
+              <option value="2">Central Asia</option>
+		      <option value="3">Pacific</option>
+              <option value="3">Other(use )</option>
+		    </select>
+				<label>Culinary Region</label>
+			</div>
+		</div>
+        
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="time_to_prepare" name="time_to_prepare" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Time to prepare</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="ingredients" name="ingredients" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Ingredients</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="spices" name="spices" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Spices to Use</label>
+			</div>
+		</div>
+         <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">edit</i>
+				<textarea id="cooking" name="cooking" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">How to prepeare and cook it?</label>
+			</div>
+		</div>
+                 <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">map</i>
+				<textarea id="time_of_the_day" name="time_of_the_day" type="text" class="materialize-textarea"></textarea>
+				<label for="icon_prefix">Suitable Time to Eat it</label>
+			</div>
+		</div> -->
+
 
 
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">

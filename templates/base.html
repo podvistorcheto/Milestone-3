@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Flask Auth</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+
 </head>
 
 <body>
@@ -31,6 +33,12 @@
                             <a href="{{ url_for('signup') }}" class="navbar-item">
                                 Sign Up
                             </a>
+                            <a href="{{ url_for('meals') }}" class="navbar-item">
+                                Recipes
+                            </a>
+                            <a href="{{ url_for('share_recipe') }}" class="navbar-item">
+                                Upload
+                            </a>
                             <a href="{{ url_for('logout') }}" class="navbar-item">
                                 Logout
                             </a>
@@ -48,7 +56,9 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{url_for('static', filename='ninja.js')}}"></script>
+    <script src="{{url_for('static', filename='forms.js')}}"></script>
 </body>
 
 </html>

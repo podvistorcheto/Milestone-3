@@ -1,83 +1,23 @@
-{% extends 'index.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %}
 <h3>Review Meal</h3>
 <div class="row">
 	<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12">
 		<div class="row">
 			<div class="input-field col s12">
-				<i class="material-icons prefix">add</i>
-				<input id="name" name="name" type="text" class="validate">
-				<label for="icon_prefix">Leave a review score</label>
+				<i class="material-icons prefix">description</i>
+                <input id="recipe" name="recipe_name" type="text" required class="materialize-textarea form-control validate">
+                {% for receipe in recipes %}
+                    {% if recipes.review_text == reviews.review_text %}
+                    <option value="{{review_text}}" selected >{{review_text}}</option>
+                    {% else %}
+                    <option value="{{review_text}}" selected >{{review_text}}</option>
+                    {% endif %}
+                {% endfor %}
+				<label for="icon_prefix">Leave your review here</label>
 			</div>
 		</div>
 
-		<!-- <div class="row">
-			<div class="input-field col s12"><i class="material-icons prefix">explore</i>
-				<select id="region" class="region_name">
-		      <option value="" disabled selected>Choose Region</option>
-		      <option value="1">East Medditerenian</option>
-		      <option value="2">West Medditerenian</option>
-		      <option value="3">Central and South America</option>
-              <option value="1">North Europe</option>
-		      <option value="2">South and East Asia</option>
-              <option value="2">Central Asia</option>
-		      <option value="3">Pacific</option>
-              <option value="3">Other(use )</option>
-		    </select>
-				<label>Culinary Region</label>
-			</div>
-		</div>
-        
-         <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">map</i>
-				<textarea id="time_to_prepare" name="time_to_prepare" type="text" class="materialize-textarea"></textarea>
-				<label for="icon_prefix">Time to prepare</label>
-			</div>
-		</div>
-         <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">map</i>
-				<textarea id="ingredients" name="ingredients" type="text" class="materialize-textarea"></textarea>
-				<label for="icon_prefix">Ingredients</label>
-			</div>
-		</div>
-         <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">map</i>
-				<textarea id="spices" name="spices" type="text" class="materialize-textarea"></textarea>
-				<label for="icon_prefix">Spices to Use</label>
-			</div>
-		</div>
-         <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">edit</i>
-				<textarea id="cooking" name="cooking" type="text" class="materialize-textarea"></textarea>
-				<label for="icon_prefix">How to prepeare and cook it?</label>
-			</div>
-		</div>
-                 <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">map</i>
-				<textarea id="time_of_the_day" name="time_of_the_day" type="text" class="materialize-textarea"></textarea>
-				<label for="icon_prefix">Suitable Time to Eat it</label>
-			</div>
-		</div> -->
-        <div id="matfix" class="row">
-            <div class="input-field col s12">
-				<i class="material-icons prefix">date_range</i>
-				<input id="upload-date" name="upload-date" type="text" class="datepicker">
-				<label for="icon_prefix">Date of Upload</label>
-			</div>
-        </div>
 		<div class="row">
-			<div class="switch">
-				<label>
-				      No
-				      <input id="cooked_meal" name="cooked_meal" type="checkbox">
-				      <span class="lever"></span>
-					Yes, I have cooked this meal!
-				</label>
-			</div>
 		</div>
 		
 		<div class="row">

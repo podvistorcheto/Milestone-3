@@ -6,72 +6,74 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
-    <title>Deyan's Cooking Book</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+	<title>Deyan's Cooking Book</title>
 </head>
 
 <body>
-	<!-- Nav and menu bar -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">Deyan's Cooking Book</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      <!---</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#">About Deyan</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">How it works</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Recipes List</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Recipes Dashboard</a>
-					</li>
-				</ul>
-			</div> -->
-		</div>
-	</nav>
+
 	<!-- Page Content -->
 	<div class="container">
-
 		<!-- Jumbotron Header -->
-		<header class="jumbotron my-4">
-			<!--    <h1 class="display-3">Want to create and upload your own recipe?</h1> -->
-			<p class="lead">{% block content %}{% endblock %}</p>
-		</header>
+
 
 		<!-- Page Features -->
-		<div class="row text-center">
-			{% for recipe in recipes %}
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card h-100">
-					<img class="card-img-top" src="{{ recipe.image }}" alt="">
-					<div class="card-body">
-						<h4 class="card-title">{{ recipe.name }}</h4>
-						<p class="card-text">{{ recipe.description }}</p>
+		<section class="hero is-primary is-fullheight">
+
+			<div class="hero-head">
+				<nav class="navbar">
+					<div class="container">
+
+						<div id="navbarMenuHeroA" class="navbar-menu">
+							<div class="navbar-end">
+								<a href="{{ url_for('index') }} class=" navbar-item">
+									Home
+								</a>
+								<a href="{{ url_for('profile') }}" class="navbar-item">
+									Profile
+								</a>
+								<a href="{{ url_for('login') }}" class="navbar-item">
+									Login
+								</a>
+								<a href="{{ url_for('signup') }}" class="navbar-item">
+									Sign Up
+								</a>
+								<a href="{{ url_for('logout') }}" class="navbar-item">
+									Logout
+								</a>
+							</div>
+						</div>
 					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Explore</a>
-					</div>
-				</div>
+				</nav>
 			</div>
-			{% endfor %}
-
-
-		</div>
+				<div class="container has-text-centered">
+					<div class="row">
+						<div class="col s12 m6">
+							<div class="card blue-grey darken-1">
+								<div class="card-content white-text">
+									<span class="card-title">Card Title</span>
+									<p>I am a very simple card. I am good at containing small bits of information.
+										I am convenient because I require little markup to use effectively.</p>
+								</div>
+								<div class="card-action">
+									<a href="#">This is a link</a>
+									<a href="#">This is a link</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					{% block content %}
+					{% endblock %}
+				</div>
+		</section>
 		<!-- /.row -->
 
 	</div>
 	<!-- /.container -->
 	<!-- Footer here-->
-	
+	<footer>
 		<!-- /.container -->
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
