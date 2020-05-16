@@ -1,6 +1,7 @@
 import os
 import bcrypt
 from flask import Flask, render_template, redirect, request, url_for, session
+from flask_login import LoginManager, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -18,16 +19,21 @@ app.config["MONGO_DBNAME"] = "cooking_book"
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+
 mongo = PyMongo(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
 
 
 @app.route('/')
 def index():
     return render_template('render.html')
-
-@app.route('/index')
-def landing_page():
-    return render_template('index.html')
 
 @app.route('/profile')
 def profile():
@@ -51,6 +57,12 @@ def login():
     else:
         return render_template('login.html')
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
 @app.route('/signup', methods=['POST','GET'])
 def signup():
     if request.method == 'POST':
@@ -70,9 +82,9 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/logout')
+""""@app.route('/logout')
 def logout():
-    return 'Log out successfull'
+    return 'Log out successfull'"""
 
 @app.route('/share_recipe')
 def share_recipe():
