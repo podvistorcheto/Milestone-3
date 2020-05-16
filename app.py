@@ -32,9 +32,9 @@ def landing_page():
 @app.route('/profile')
 def profile():
     if 'email' in session:
-        return "Welcome!<br><br>You are logged in as {}".format(session["email"])
-    
-    return render_template('profile.html')
+        return render_template('profile.html').format(session["email"])
+    else:
+        return render_template('login.html')
 
 """ login form with user fetching with mongodb """
 
