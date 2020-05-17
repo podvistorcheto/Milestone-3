@@ -1,64 +1,117 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Flask Auth</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+  </head>
 
-</head>
-
-<body>
-    <section class="hero is-primary is-fullheight">
-
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="{{ url_for('index') }}" class="navbar-item">
-                                Home
-                            </a>
-                            <a href="{{ url_for('profile') }}" class="navbar-item">
-                                Profile
-                            </a>
-                            <a href="{{ url_for('login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
-                            <a href="{{ url_for('meals') }}" class="navbar-item">
-                                Recipes
-                            </a>
-                            <a href="{{ url_for('share_recipe') }}" class="navbar-item">
-                                Upload
-                            </a>
-                            <a href="{{ url_for('logout') }}" class="navbar-item">
-                                Logout
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Cookbook</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="{{ url_for('index') }}" class="navbar-item">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('profile') }}" class="navbar-item">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('login') }}" class="navbar-item">
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('signup') }}" class="navbar-item">
+              Sign Up
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('meals') }}" class="navbar-item">
+              Recipes
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('share_recipe') }}" class="navbar-item">
+              Upload
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('logout') }}" class="navbar-item">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <a href="{{ url_for('index') }}" class="navbar-item">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('profile') }}" class="navbar-item">
+          Profile
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('login') }}" class="navbar-item">
+          Login
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('signup') }}" class="navbar-item">
+          Sign Up
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('meals') }}" class="navbar-item">
+          Recipes
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('share_recipe') }}" class="navbar-item">
+          Upload
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('logout') }}" class="navbar-item">
+          Logout
+        </a>
+      </li>
+    </ul>
+ 
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          {% block content %} {% endblock %}
         </div>
-
-        <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
-            </div>
-        </div>
-    </section>
+      </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='ninja.js')}}"></script>
     <script src="{{url_for('static', filename='forms.js')}}"></script>
-</body>
-
+  </body>
 </html>
