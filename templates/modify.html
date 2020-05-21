@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Review Meal</h3>
 <div class="row">
-	<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12">
+	<form action="{{ url_for('upload_review') }}" method="POST" class="col s12">
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">description</i>
                 <input id="recipe" name="recipe_name" type="text" required class="materialize-textarea form-control validate">
-                {% for receipe in recipes %}
+                {% for review in reviews %}
                     {% if recipes.review_text == reviews.review_text %}
-                    <option value="{{review_text}}" selected >{{review_text}}</option>
+                    <option value="{{recipe.name}}" selected >{{recipe_name}}</option>
                     {% else %}
                     <option value="{{review_text}}" selected >{{review_text}}</option>
                     {% endif %}

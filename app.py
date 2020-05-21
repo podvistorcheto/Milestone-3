@@ -35,6 +35,10 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
+@app.route('/grid_recipes')
+def grid_recipes():
+    return render_template("grid_recipes.html")
+
 @app.route('/profile')
 def profile():
     if 'email' in session:
@@ -103,16 +107,10 @@ def upload_recipe():
 """ create route for the html form to upload files"""
 @app.route('/file_upload')
 def file_upload():
-        return '''
-            <form method='POST' action='/create' enctype='multipart/form-data'> 
-                <input type='text' name='username'>
-                <input type='file' name='profile_image'>
-                <input type='submit'>
-            </form>
-        '''
+        return render_template("upload_photo.html")
 
 
-""" connect the upload to mongodb collection """
+""" connect the function to upload the picture to mongodb collection """
 @app.route('/create', methods=['POST'])
 def create():
     if 'profile_image' in request.files:
@@ -137,10 +135,6 @@ def user_a(username):
         '''
 
 
-
-
-
-
 @app.route('/meals')
 def meals():
     return render_template('meals.html', recipes=mongo.db.recipes.find())
@@ -148,8 +142,17 @@ def meals():
 @app.route('/review_meals/<meal_id>')
 def review_meals(meal_id):
     the_review = mongo.db.recipes.find_one({"_id": ObjectId(meal_id)})
-    reviews_data = mongo.db.reviews.find()
-    return render_template("ratings.html", recipes=the_review, reviews=reviews_data)
+    reviews_data = mongo.db.reviews.find({'name': the_review['name']})
+    return render_template("modify.html", recipes=the_review, reviews=reviews_data)
+
+@app.route('/upload_review', methods=['POST'])
+def upload_review():
+    reviews = mongo.db.reviews
+    reviews.insert_one(request.form.to_dict())
+    manage_review = request.form.to_dict()
+    if manage_review is None:
+        return 'Please fill in all fields!'
+    return redirect(url_for('meals'))
 
 
 @app.route('/carta')
