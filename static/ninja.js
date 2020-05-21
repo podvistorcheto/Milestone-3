@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
     $(".datepicker").datepicker({
@@ -12,5 +13,4 @@ $(document).ready(function () {
             cancel: "Cancel"
         }
     });
-
 });
