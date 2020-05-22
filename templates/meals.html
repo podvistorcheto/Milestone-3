@@ -8,12 +8,13 @@
             <div>
 			<div class="col s9">
 				<strong>{{recipe.name}} - {{recipe.time_to_prepare}}</strong>
+                <img src={{recipe.image}}>
 			</div>
 			<div class="col s2">
             <div class="inline_actions">
 				<a href="{{url_for('review_meals', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small red">Rate</a>
                 <a href="{{url_for('carta', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small red">View</a>
-				<a href="{{url_for('file_upload', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small">Please upload photo</a>
+				<a href="{{url_for('delete_recipe', meal_id=recipe._id)}}" class="waves-effect waves-light btn btn-small">Delete</a>
             </div>
 			</div>
 		</div>

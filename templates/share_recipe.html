@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Share own original recipe</h3>
 <div class="row">
-	<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12" name="myform">
+	<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12" name="myform" enctype="multipart/form-data">
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">add</i>
 				<input id="name" name="name" type="text" required class="materialize-textarea form-control validate">
-				<label for="icon_prefix">Recipe Name</label>
+				<label for="icon_prefix">Meal Name</label>
 			</div>
 		</div>
 
@@ -48,11 +48,10 @@
 				<label for="icon_prefix">How to prepeare and cook it?</label>
 			</div>
 		</div>
-		<div class="row">
+        		<div class="row">
 			<div class="input-field col s12">
-				<i class="material-icons prefix">attach_file</i>
-				<textarea id="photo" name="cooking" type="text" required class="materialize-textarea form-control validate"></textarea>
-				<label for="icon_prefix">Upload photo link your device using imgur.com platform, copy/past this link https://imgur.com/a/NWM4YZE for quick tutorial</label>
+				<i class="material-icons prefix">airplay</i><label for="icon_prefix">Photo Upload</label>
+				<input type="file" name="image" required class="materialize-textarea form-control validate">
 			</div>
 		</div>
 		<div id="matfix" class="row">

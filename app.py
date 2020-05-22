@@ -1,5 +1,7 @@
 import os
 import bcrypt
+import base64 
+from base64 import b64encode
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_login import LoginManager, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -96,8 +98,12 @@ def share_recipe():
 
 @app.route('/upload', methods=['POST'])
 def upload_recipe():
+    image = request.files['image']       
+    image_string = "data:image/png;base64," + base64.b64encode(image.read()).decode("utf-8")
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
+    recipe = request.form.to_dict()
+    recipe['image'] = image_string
+    recipes.insert_one(recipe)
     manage_upload = request.form.to_dict()
     if manage_upload is None:
         return 'Please fill in all fields!'
@@ -116,9 +122,10 @@ def create():
     if 'profile_image' in request.files:
         profile_image = request.files['profile_image']
         mongo.save_file(profile_image.filename, profile_image)
-        mongo.db.photos.insert({'username' : request.form.get('username'), 'profile_image_name' : profile_image.filename})
+        mongo.db.photos.insert_one({'username' : request.form.get('username'), 'profile_image_name' : profile_image.filename})
     
-    return 'Done!'
+    return render_template('findphoto.html', photos=mongo.db.photos.find())
+
 
 """ retrieve pic from mongodb step 1 - creates an endpoint that allows you to retreive data from"""
 @app.route('/gallery/<filename>')
@@ -130,7 +137,6 @@ def gallery(filename):
 def user_a(username):
      user_a = mongo.db.photos.find_one_or_404({'username': username})
      return f'''
-        <h3>{username}<h3>
         <img src="{url_for('gallery', filename=user_a['profile_image_name'])}">
         '''
 
