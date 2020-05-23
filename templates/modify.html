@@ -1,29 +1,36 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Review Meal</h3>
+<h3>rate this recipe</h3>
 <div class="row">
 	<form action="{{ url_for('upload_review') }}" method="POST" class="col s12">
+  
+        
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">description</i>
-                <input id="recipe" name="recipe_name" type="text" required class="materialize-textarea form-control validate">
+                <input id="review" name="review" type="text" required class="materialize-textarea form-control validate" value=>
                 {% for review in reviews %}
-                    {% if recipes.review_text == reviews.review_text %}
-                    <option value="{{recipe.name}}" selected >{{recipe_name}}</option>
+                    {% if recipe.name == review.name %}
+                    <option value="{{recipe.name}}" selected>{{recipe.name}}</option>
                     {% else %}
-                    <option value="{{review_text}}" selected >{{review_text}}</option>
+                    <option value="{{review_text}}" selected>{{review_text}}</option>
                     {% endif %}
                 {% endfor %}
 				<label for="icon_prefix">Leave your review here</label>
 			</div>
 		</div>
 
-		<div class="row">
-		</div>
+        <div>
+            <div>
+
 		
-		<div class="row">
+            </div>
+        </div>
+<div class="row">
 			<button class="btn waves-effect waves-light" type="submit" name="action">Submit Review
 				<i class="material-icons right">done_all</i></button>
 		</div>
+		
+
 	</form>
 </div>
 {% endblock %}
