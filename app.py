@@ -169,7 +169,7 @@ def carta():
 @app.route('/delete_recipe/<meal_id>')
 def delete_recipe(meal_id):
     mongo.db.recipes.delete_one({'_id': ObjectId(meal_id)})
-    return redirect(url_for('meals'))
+    return redirect(url_for('carta'))
 
 
 if __name__ == '__main__':

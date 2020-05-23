@@ -1,31 +1,42 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %}
 <h3>View recipes</h3>
-   {% for recipe in recipes %}
+{% for recipe in recipes %}
 
-    {{recipe.name}}
-    {{recipe.description}}
-    {{recipe.time_to_prepare}}
-    {{recipe.ingredients}}
-    {{recipe.upload_date}}
-    {{recipe.cooked_meal}}
+{{recipe.name}}
+{{recipe.culinary_region}}
+{{recipe.time_to_prepare}}
+{{recipe.ingredients}}
+{{recipe.upload_date}}
+{{recipe.cooked_meal}}
 
-    <ul>
-    <li>
-     <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img src="{{recipe.image}}">
+<ul>
+	<li>
+		<div class="card medium">
+			<div class="card-image waves-effect waves-block waves-light">
+				<img class="activator" src="{{recipe.image}}">
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">{{recipe.image}}<i class="material-icons right">close</i></span>
-      <p>{{recipe.description}}</p> - {{recipe.time_to_prepare}} - {{recipe.ingredients}} - {{recipe.upload_date}} - {{recipe.cooked_meal}}</p>
-    </div>
-  </div>
-    </li>
-    </ul>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">more_vert</i></span>
+					<p><a href="{{url_for('review_meals', meal_id=recipe._id)}}"
+							class="waves-effect waves-light btn btn-small red">Rate</a>
+						<a href="{{url_for('carta', meal_id=recipe._id)}}"
+							class="waves-effect waves-light btn btn-small red">View</a>
+						<a href="{{url_for('delete_recipe', meal_id=recipe._id)}}"
+							class="waves-effect waves-light btn btn-small">Delete</a>
 
-    {% endfor %}
-  {% endblock %}
+					</p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+					<p>{{recipe.culinary_region}}</p>
+					<p>{{recipe.time_to_prepare}}</p>
+					<p>{{recipe.ingredients}}</p>
+					<p>{{recipe.upload_date}}</p>
+					<p>{{recipe.cooked_meal}}</p>
+				</div>
+			</div>
+	</li>
+</ul>
+
+{% endfor %}
+{% endblock %}
