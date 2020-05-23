@@ -19,8 +19,7 @@
 					<span class="card-title activator grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">more_vert</i></span>
 					<p><a href="{{url_for('review_meals', meal_id=recipe._id)}}"
 							class="waves-effect waves-light btn btn-small red">Rate</a>
-						<a href="{{url_for('carta', meal_id=recipe._id)}}"
-							class="waves-effect waves-light btn btn-small red">View</a>
+						<a class="activator waves-effect waves-light btn btn-small red">View</a>
 						<a href="{{url_for('delete_recipe', meal_id=recipe._id)}}"
 							class="waves-effect waves-light btn btn-small">Delete</a>
 

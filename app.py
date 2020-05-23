@@ -158,7 +158,7 @@ def upload_review():
     manage_review = request.form.to_dict()
     if manage_review is None:
         return 'Please fill in all fields!'
-    return redirect(url_for('meals'))
+    return redirect(url_for('carta'))
 
 
 @app.route('/carta')
