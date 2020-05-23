@@ -107,7 +107,7 @@ def upload_recipe():
     manage_upload = request.form.to_dict()
     if manage_upload is None:
         return 'Please fill in all fields!'
-    return redirect(url_for('meals'))
+    return redirect(url_for('carta'))
 
 
 """ create route for the html form to upload files"""
