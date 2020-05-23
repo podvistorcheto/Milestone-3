@@ -14,3 +14,7 @@
 .task-header {
     margin-top: 5px;
 }
+
+.card .card-reveal {
+    background: rgb(163, 155, 170);
+}

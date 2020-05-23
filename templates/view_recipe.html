@@ -27,13 +27,13 @@
 					</p>
 				</div>
 				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-					<p>{{recipe.culinary_region}}</p>
-					<p>{{recipe.time_to_prepare}}</p>
-					<p>{{recipe.ingredients}}</p>
-                    <p>{{recipe.cooking}}</p>
-					<p>{{recipe.upload_date}}</p>
-					<p>{{recipe.cooked_meal}}</p>
+					<span class="card-title grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">close</i></span>
+					<p><strong>Culinary Region: </strong>{{recipe.culinary_region}}</p>
+					<p><strong>Time to prepare: </strong>{{recipe.time_to_prepare}}</p>
+					<p><strong>Ingredients: </strong>{{recipe.ingredients}}</p>
+                    <p>	<strong>How to prepare and cook: </strong>{{recipe.cooking}}</p>
+					<p><strong>Date of upload: </strong>{{recipe.upload_date}}</p>
+					<p><strong>The user who uploded the recipe actually cooked it: </strong>{{recipe.cooked_meal}}</p>
 				</div>
 			</div>
 	</li>
