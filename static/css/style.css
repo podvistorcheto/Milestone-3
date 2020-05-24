@@ -16,5 +16,27 @@
 }
 
 .card .card-reveal {
-    background: rgb(163, 155, 170);
+    background-image: url(/static/images/mish.jpg);
+}
+
+.modify-btn {
+    margin-left: 10 rem;
+}
+
+.wrap-it-up {
+    height: 280px;
+}
+
+/*.card.small .card-image, .card.medium .card-image, .card.large .card-image {max-height: 80%;} */
+
+nav .brand-logo {
+    padding-left: 10px;
+}
+
+.posit {
+    padding-top: 10px;
+}
+
+.box {
+    width: 26%;
 }

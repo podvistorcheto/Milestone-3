@@ -1,13 +1,68 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flask Auth</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+  </head>
 
-{% block content %}
+  <body>
+    <nav class="deep-orange darken-4">
+      <div class="nav-wrapper">
+        <a href="{{ url_for('index') }}" class="brand-logo">Cookbook</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="{{ url_for('index') }}" class="navbar-item">
+              About The Cookbook
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('signup') }}" class="navbar-item">
+              Recipes
+            </a>
+          </li> 
+          
+          
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <a href="{{ url_for('index') }}" class="navbar-item">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('signup') }}" class="navbar-item">
+          Sign Up
+        </a>
+      </li>
+    </ul>
+<div class="container">
 <div class="column is-4 is-offset-4">
     <h3 class="title">Login</h3>
     <div class="box">
         <form method="POST" action="/login">
             <div class="field">
                 <div class="control">
-                    <input required class="materialize-textarea input is-large form-control validate" type="email" name="email" placeholder="Your Email" autofocus="">
+                    <input required class="materialize-textarea input is-large form-control validate" type="email" name="email" placeholder="Your Username">
                 </div>
             </div>
 
@@ -17,10 +72,22 @@
                 </div>
             </div>
 
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+            <button class="btn waves-effect waves-light deep-orange darken-4 is-block is-info is-large is-fullwidth">Login</button>
         </form><br>
         <div>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a>.
         </div>
     </div>
 </div>
-{% endblock %}
+</div>
+<div class="hero-body">
+        <div class="container has-text-centered">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{url_for('static', filename='ninja.js')}}"></script>
+    <script src="{{url_for('static', filename='forms.js')}}"></script>
+  </body>
+</html>

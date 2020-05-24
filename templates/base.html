@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="deep-orange darken-4">
       <div class="nav-wrapper">
         <a href="{{ url_for('index') }}" class="brand-logo">Cookbook</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
@@ -34,11 +34,6 @@
             </a>
           </li>
           <li>
-            <a href="{{ url_for('login') }}" class="navbar-item">
-              Login
-            </a>
-          </li>
-          <li>
             <a href="{{ url_for('carta') }}" class="navbar-item">
               Recipes
             </a>
@@ -47,7 +42,7 @@
             <a href="{{ url_for('share_recipe') }}" class="navbar-item">
               Upload
             </a>
-          </li> 
+          </li>
           <li>
             <a href="{{ url_for('logout') }}" class="navbar-item">
               Logout
@@ -63,30 +58,17 @@
         </a>
       </li>
       <li>
-        <a href="{{ url_for('profile') }}" class="navbar-item">
-          Profile
-        </a>
-      </li>
-      <li>
-        <a href="{{ url_for('login') }}" class="navbar-item">
-          Login
-        </a>
-      </li>
-      <li>
         <a href="{{ url_for('signup') }}" class="navbar-item">
           Sign Up
         </a>
       </li>
       <li>
-        <a href="{{ url_for('meals') }}" class="navbar-item">
-          Recipes
+        <a href="{{ url_for('carta') }}" class="navbar-item">
+          Recipes List
         </a>
       </li>
-      <li>
-        <a href="{{ url_for('share_recipe') }}" class="navbar-item">
-          Upload
-        </a>
-      </li>
+      <li><a href="{{ url_for('share_recipe') }}" class="navbar-item">Upload
+        </a></li>
       <li>
         <a href="{{ url_for('logout') }}" class="navbar-item">
           Logout

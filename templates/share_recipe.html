@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Share own original recipe</h3>
+<div class="row">
+<h3>Share own original recipe</h3></div>
 <div class="row">
 	<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12" name="myform" enctype="multipart/form-data">
 		<div class="row">
@@ -37,13 +38,15 @@
 				<textarea id="cooking" name="cooking" type="text" required class="materialize-textarea form-control validate"></textarea>
 				<label for="icon_prefix">How to prepeare and cook it?</label>
 			</div>
+                        <div class="input-field col s12"><i class="material-icons prefix">airplay</i><br><br>
+            <label>Upload Photo</label>
+            <input type="file" name="image" required class="materialize-textarea form-control validate">
+                        </div>
+
 		</div>
-        		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">airplay</i><label for="icon_prefix">Photo Upload</label>
-				<input type="file" name="image" required class="materialize-textarea form-control validate">
-			</div>
-		</div>
+
+   
+
 		<div id="matfix" class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">date_range</i>
@@ -65,7 +68,7 @@
 		<div class="row">
 
 			<button class="btn waves-effect waves-light" type="submit" name="action">Submit Recipe
-				<i class="material-icons right">done_all</i></button>
+				<i class="material-icons right">input</i></button>
 		</div>
 	</form>
 </div>

@@ -37,9 +37,15 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
-@app.route('/grid_recipes')
-def grid_recipes():
-    return render_template("grid_recipes.html")
+
+@app.route('/new_session')
+def session_started():
+        return render_template('base.html')
+
+
+@app.route('/meals')
+def meals():
+    return render_template('login.html')
 
 @app.route('/profile')
 def profile():
@@ -64,10 +70,9 @@ def login():
         return render_template('login.html')
 
 @app.route('/logout')
-@login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return render_template('index.html')
 
 @app.route('/signup', methods=['POST','GET'])
 def signup():
@@ -82,7 +87,7 @@ def signup():
             """ and store the hashed version of the password"""
             users.insert_one({'name' : request.form['email'], 'password' : hashpass})
             session['email'] = request.form['email']
-            return redirect(url_for('profile'))
+            return redirect(url_for('login'))
         return 'This username and/or email already exists!'
 
     return render_template('signup.html')
@@ -122,7 +127,7 @@ def create():
     if 'profile_image' in request.files:
         profile_image = request.files['profile_image']
         mongo.save_file(profile_image.filename, profile_image)
-        mongo.db.photos.insert_one({'username' : request.form.get('username'), 'profile_image_name' : profile_image.filename})
+        mongo.db.photos.insert_one({'email' : request.form.get('email'), 'profile_image_name' : profile_image.filename})
     
     return render_template('findphoto.html', photos=mongo.db.photos.find())
 
@@ -141,10 +146,6 @@ def user_a(username):
         '''
 
 
-@app.route('/meals')
-def meals():
-    return render_template('meals.html', recipes=mongo.db.recipes.find())
-
 @app.route('/review_meals/<meal_id>')
 def review_meals(meal_id):
     the_review = mongo.db.recipes.find_one({"_id": ObjectId(meal_id)})
@@ -158,13 +159,17 @@ def upload_review():
     manage_review = request.form.to_dict()
     if manage_review is None:
         return 'Please fill in all fields!'
-    return redirect(url_for('carta'))
+    return 'We sincerely apologies. This feature is under contstruction'
 
 
 @app.route('/carta')
 def carta():
     return render_template('view_recipe.html', recipes=mongo.db.recipes.find())
 
+@app.route('/scorings')
+def rates():
+    rating = request.files['rating']
+    rating_array = mongo.db.recipes.aeinsert_one({'rating': ObjectId()})
 
 @app.route('/delete_recipe/<meal_id>')
 def delete_recipe(meal_id):
