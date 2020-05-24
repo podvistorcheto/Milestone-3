@@ -38,6 +38,16 @@ nav .brand-logo {
     padding-left: 10px;
 }
 
+/* card text modified for mobile */
+
+
 #text-up {
     padding: 160px; 
 }
+
+
+@media (max-width: 476px) {
+    #text-up {
+        padding: 55px;
+    }
+    }
