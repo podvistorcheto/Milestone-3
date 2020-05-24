@@ -60,12 +60,30 @@ Technologies
 Development process
 
 Started with coding the app.py file and linking it to my MongoDB account. The initial part was based on what I have learned in 
-the Code Institute. At some point adding the login authentication presented a challenge. However I received an inspiration from [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login) 
+the Code Institute. At some point adding the login authentication presented a challenge. However I received an inspiration from [this page](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login) 
 at Digital Ocean. It was a nice starting point and along the way I decided to simplified it and keep it one python file because
-the the form I use is rather basic. Another tutorial presented the idea how encrypt the password in the mongodb database. I had to 
+the the form I use is rather basic. 
+
+After more exploring more details I found [this tutorial](https://www.youtube.com/watch?v=vVx1737auSE) which presented the idea how encrypt the password in the mongodb database. I had to 
 fix a bug for login process after wiring up the sign up process. The password stays encrypted using the Bcrypt format and
 I don't have access to the actual password of the user. At some point the media upload provided limited options. MongoDB is document 
 based and storing pictures is not recommened. Hence, I decided to store the picture by converting it to a string to fit in the
 database. To improve the uploads each picture size is restricted to 4MB. 
 
-https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+The entire CSS styling was done near the end of the project. The styles of the app stick to the Materialize framework. In order to stick to simplified approach I tried to resort as less as possible to custome 
+css in the static folder. Interestingly Materialize does not provide style input for the login page, more specifically for the username input form validation. 
+When I tried to use the input form it changed the style of the form. Therefore I stick to the email validation offered by Materialize.  
+
+
+Testing
+
+Manual Testing
+
+First testing was done on the login page which required some bug fixing to come up the fix in final version of the code in line
+line 87. After I need to make sure that routing differs wheather user is in login session. Testing the CRUD framework for creation, 
+read, update and delete is in place took the great part of the tests. It needed to make sure is managing the right document.
+
+I used the Firefox browser and was constantly testing it for content consistency with Chrome. Hence there are no additional issues 
+with the compatability. After completion of the final version manual test for compatability were done for Safari and Microsoft Edge 
+browser. The back to top button was additionally modified with line of code inside the function '''document.body.scrollTop = 0;'''. 
+Hence the page is compatable with the Safari browser
