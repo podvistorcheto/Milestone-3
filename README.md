@@ -148,7 +148,7 @@ Then type these command lines in the terminal to make sure all frameworks are in
 ```pip3 install flask
    pip3 install flask_pymngo
    pip3 install dnspython
-   pip3 install -r requirements.txt
+   pip3 freeze --local > requirements.txt
 ```
 
 The GitPod editor doesn't ask for ```sudo``` before ```pip3``` in the commands, but most editors require it. 
