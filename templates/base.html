@@ -29,8 +29,8 @@
         >
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a href="{{ url_for('index') }}" class="navbar-item">
-              About The Cookbook
+            <a href="{{ url_for('about_page') }}" class="navbar-item">
+              About
             </a>
           </li>
           <li>
@@ -40,7 +40,7 @@
           </li> 
           <li>
             <a href="{{ url_for('share_recipe') }}" class="navbar-item">
-              Upload
+              Upload Meal
             </a>
           </li>
           <li>
@@ -53,18 +53,13 @@
     </nav>
     <ul class="sidenav" id="mobile-demo">
       <li>
-        <a href="{{ url_for('index') }}" class="navbar-item">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="{{ url_for('signup') }}" class="navbar-item">
-          Sign Up
+        <a href="{{ url_for('about_page') }}" class="navbar-item">
+          About
         </a>
       </li>
       <li>
         <a href="{{ url_for('carta') }}" class="navbar-item">
-          Recipes List
+          Recipes
         </a>
       </li>
       <li><a href="{{ url_for('share_recipe') }}" class="navbar-item">Upload

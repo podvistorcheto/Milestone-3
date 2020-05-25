@@ -37,6 +37,9 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
+@app.route('/about_page')
+def about_page():
+    return render_template('about.html')
 
 @app.route('/new_session')
 def session_started():

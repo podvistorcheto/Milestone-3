@@ -28,29 +28,27 @@
         >
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a href="{{ url_for('index') }}" class="navbar-item">
-              About The Cookbook
+            <a href="{{ url_for('about_page') }}" class="navbar-item">
+              About
             </a>
           </li>
           <li>
-            <a href="{{ url_for('signup') }}" class="navbar-item">
-              Recipes
+            <a href="{{ url_for('login') }}" class="navbar-item">
+              Login
             </a>
-          </li> 
-          
-          
+          </li>
         </ul>
       </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
       <li>
-        <a href="{{ url_for('index') }}" class="navbar-item">
-          Home
+        <a href="{{ url_for('about_page') }}" class="navbar-item">
+          About
         </a>
       </li>
       <li>
-        <a href="{{ url_for('signup') }}" class="navbar-item">
-          Sign Up
+        <a href="{{ url_for('login') }}" class="navbar-item">
+          Login
         </a>
       </li>
     </ul>
