@@ -118,6 +118,8 @@ A chatbox could be nice to have next to each recipe card. It will be an option t
 ### Know issues
 
 Coooked meal shows ON - and Datepicker
+The rate button on the recipe card is not entirely wired up with the website. It has a collection in MongoDB for reviews but 
+is still a feature that needs to be implemented. I indend to add it a ratings key nested in each recipe document.
 
 ## Credits
 
