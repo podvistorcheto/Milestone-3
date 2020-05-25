@@ -82,6 +82,7 @@ read, update and delete is in place took the great part of the tests. It needed 
 
 I used the Firefox browser and was constantly testing it for content consistency with Chrome. Hence there are no additional issues 
 with the compatability. After completion of the final version manual test for compatability were done for Safari and Microsoft Edge 
+<<<<<<< HEAD
 browser. The back to top button was additionally modified with line of code inside the function '''document.body.scrollTop = 0;'''. 
 Hence the page is compatable with the Safari browser.
 
@@ -161,3 +162,7 @@ add secret key.
 
 
 
+=======
+browser. The back to top button was additionally modified with line of code inside the function ```document.body.scrollTop = 0;```. 
+Hence the page is compatable with the Safari browser
+>>>>>>> 48c1f24a8dac5ddea0b341d14547c78e85937788
