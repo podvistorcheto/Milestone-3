@@ -51,3 +51,25 @@ nav .brand-logo {
         padding: 55px;
     }
     }
+
+/* card reveal override for the recipes cards */
+
+.photo-except-one {
+        background-image: url(/static/images/board.jpg);
+}
+
+.photo-except-two {
+        background-image: url(/static/images/flour.jpg);
+        height: 45em;
+}
+
+/*  footer icones */
+
+.fa {
+    padding-right: 18px;
+    font-size: 24px;
+}
+
+.tall {
+    height: 50%;
+}

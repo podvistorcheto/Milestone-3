@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h3>View recipes</h3>
+<h3>Recipes List</h3>
 {% for recipe in recipes %}
 
 <ul>
@@ -11,27 +11,27 @@
 				<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">more_vert</i></span>
 					<p><a class="activator waves-effect waves-light btn btn-small red">Expand</a>
-                    <a href="{{url_for('review_meals', meal_id=recipe._id)}}"
+						<a href="{{url_for('review_meals', meal_id=recipe._id)}}"
 							class="waves-effect waves-light btn btn-small red">Rate</a>
 						<a href="{{url_for('delete_recipe', meal_id=recipe._id)}}"
 							class="waves-effect waves-light btn btn-small">Delete</a>
 
 					</p>
 				</div>
-				<div class="card-reveal photo-except">
+				<div class="card-reveal photo-except-one">
 					<span class="card-title grey-text text-darken-4">{{recipe.name}}<i class="material-icons right">close</i></span>
 					<p><strong>Culinary Region: </strong>{{recipe.culinary_region}}</p>
 					<p><strong>Time to prepare: </strong>{{recipe.time_to_prepare}}</p>
 					<p><strong>Ingredients: </strong>{{recipe.ingredients}}</p>
-                    <p>	<strong>How to prepare and cook: </strong>{{recipe.cooking}}</p>
+					<p> <strong>How to prepare and cook: </strong>{{recipe.cooking}}</p>
 					<p><strong>Date of upload: </strong>{{recipe['upload-date']}}</p>
 					<p>
-                    {% if recipe.cooked_meal %}
-                    <strong>The user who uploded this recipe actually cooked it: </strong>True</p>
-                    {% else %}
-                    <p><strong>The user who uploded this recipe actually cooked it: </strong>True</p>
-                    {% endif %}
-                </div>
+						{% if recipe.cooked_meal %}
+						<strong>The user who uploded this recipe actually cooked it: </strong>True</p>
+					{% else %}
+					<p><strong>The user who uploded this recipe actually cooked it: </strong>True</p>
+					{% endif %}
+				</div>
 			</div>
 	</li>
 </ul>

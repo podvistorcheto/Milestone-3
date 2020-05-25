@@ -1,83 +1,105 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Why The Cookbook project
-</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/style.css')}}"
-      type="text/css"
-    />
-  </head>
 
-  <body>
-    <nav class="deep-orange darken-4">
-      <div class="nav-wrapper">
-        <a href="{{ url_for('index') }}" class="brand-logo">Cookbook</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-            <a href="{{ url_for('about_page') }}" class="navbar-item">
-              About
-            </a>
-          </li>
-      <li>
-            <a href="{{ url_for('login') }}" class="navbar-item">
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="{{ url_for('signup') }}" class="navbar-item">
-              Sign up
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <ul class="sidenav" id="mobile-demo">
-      <li>
-        <a href="{{ url_for('about_page') }}" class="navbar-item">
-          About
-        </a>
-      </li>
-            <li>
-            <a href="{{ url_for('login') }}" class="navbar-item">
-              Login
-            </a>
-          </li>
-      <li>
-            <a href="{{ url_for('signup') }}" class="navbar-item">
-              Sign up
-            </a>
-          </li>
-    </ul>
-     <h3>Why The Cookbook project</h3>
-     <h6>This website aims to promote cooking with focus on easy and quick homemade meals. 
-When coding the website and uploading the recipe I tried to have in mind the the fast paced dailty routine 
-of cities we live and how have so little time for homemade warm meal. 
-Hence, this idea is brough to life. Share recipes and please enjoy.
-</h6>
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          {% block content %} {% endblock %}
-        </div>
-      </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{url_for('static', filename='ninja.js')}}"></script>
-    <script src="{{url_for('static', filename='forms.js')}}"></script>
-  </body>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Why The Cookbook project
+	</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+</head>
+
+<body>
+	<nav class="deep-orange darken-4">
+		<div class="nav-wrapper">
+			<a href="{{ url_for('index') }}" class="brand-logo">Cookbook</a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li>
+					<a href="{{ url_for('about_page') }}" class="navbar-item">
+						About
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('login') }}" class="navbar-item">
+						Login
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('signup') }}" class="navbar-item">
+						Sign up
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<ul class="sidenav" id="mobile-demo">
+		<li>
+			<a href="{{ url_for('about_page') }}" class="navbar-item">
+				About
+			</a>
+		</li>
+		<li>
+			<a href="{{ url_for('login') }}" class="navbar-item">
+				Login
+			</a>
+		</li>
+		<li>
+			<a href="{{ url_for('signup') }}" class="navbar-item">
+				Sign up
+			</a>
+		</li>
+	</ul>
+	<div class="container photo-except-two">
+		<h3>Why the Cookbook project?</h3>
+		<blockquote>This website aims to promote healty eating and cooking with focus on easy to prepare and quick homemade meals.
+			While creating the website and uploading the recipes in the beggining, we have tried to have in mind the fast-paced 
+            daily routines of the cities we live in. This always leads to having so little time for homemade comforting meal.
+			Hence, this idea was brought to life. Please join to share or check out recipes and enjoy.
+		</blockquote>
+	</div>
+	<div>
+		{% block content %} {% endblock %}
+	</div>
+	<footer class="page-footer deep-orange lighten-5">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="grey-text text-darken-3">Contact</h5>
+					<p class="grey-text text-darken-4">You can get in touch with the creator of this website the link in
+						the right-hand side.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="grey-text text-darken-4">Links</h5>
+					<a class="grey-text text-darken-4 fa fa-instagram"
+						href="https://www.instagram.com/accounts/login/?hl=en"> </a>
+					<a class="grey-text text-darken-4 fa fa-linkedin"
+						href="https://nl.linkedin.com/in/deyan-denev-a33a7b79"> </a>
+					<a class="grey-text text-darken-4 fa fa-facebook" href="https://www.facebook.com/"></a>
+					<a class="grey-text text-darken-4 fa fa-github-square"
+						href="https://github.com/podvistorcheto/"></a>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright deep-orange darken-4">
+			<div class="container">
+				© 2020 PodvisTorcheto
+				<a onclick="topFunction()"
+					class="grey-text text-lighten-4 right waves-effect waves-light btn deep-orange darken-1"
+					id="myButton" title="Go to top">back to top</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="{{url_for('static', filename='ninja.js')}}"></script>
+	<script src="{{url_for('static', filename='forms.js')}}"></script>
+</body>
+
 </html>

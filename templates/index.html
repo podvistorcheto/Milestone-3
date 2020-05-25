@@ -4,12 +4,12 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-	<title>Cooking Book</title>
+	<title>Cookbook Project</title>
 </head>
 
 <body>
@@ -45,83 +45,92 @@
 	</ul>
 
 	<header>
-    <div class="container">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img class="wrap-it-up" src="{{url_for('static', filename='images/brown-wood.jpg')}}">
-          <span class="card-title" id="text-up">
+		<div class="container">
+			<div class="col s12 m7">
+				<div class="card">
+					<div class="card-image">
+						<img class="wrap-it-up" src="{{url_for('static', filename='images/brown-wood.jpg')}}">
+						<span class="card-title" id="text-up">
           Find how to cook an easy meal for friends and family or upload your own recipe!</span>
-        </div>
-        <div class="card-action">
-        <a href="{{ url_for('signup') }}" class="waves-effect waves-light btn amber orange darken-3"><i class="material-icons right">forum</i>sign up</a>  	
-								or <a href="{{ url_for('login') }}" class="orange-text darken-3 text-darken-3">Login</a>
-        </div>
-      </div>
-    </div>
-  </div>
-		
+					</div>
+					<div class="card-action">
+						<a href="{{ url_for('signup') }}"
+							class="waves-effect waves-light btn amber orange darken-3"><i class="material-icons right">forum</i>sign
+							up</a>
+						or <a href="{{ url_for('login') }}" class="orange-text darken-3 text-darken-3">Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</header>
 	<div class="container">
-		<div class="card medium">
+		<div class="card medium tall">
 			<div class="card-image waves-effect waves-block waves-light">
 				<img class="activator wrap-it-up" src="{{url_for('static', filename='images/mish.jpg')}}"  alt="mish mash">
     </div>
 				<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4"><strong>Mish Mash</strong></span>
-                        <a class="activator waves-effect waves-light btn btn-medium green">Explore</a><br>
+					<a class="activator waves-effect waves-light btn btn-medium green">Explore</a><br>
 				</div>
-				<div class="card-reveal photo-except">
-					<span class="card-title grey-text text-darken-4">Mish Mash<i class="material-icons right">facebook</i></span>
-					<p><strong><h6>Delicious treat from the 
+					<div class="card-reveal photo-except">
+						<span class="card-title grey-text text-darken-4">Mish Mash<i class="material-icons right">close</i></span>
+						<p><strong><h6>Delicious treat from the 
                         East of the Medeterinian. Legend has it is an original Bulgarian recipe.</h6></strong></p>
-                    <a href="{{ url_for('login') }}" class="activator waves-effect waves-light btn btn-medium green">Login and find more</a>
+						<a href="{{ url_for('login') }}"
+							class="activator waves-effect waves-light btn btn-medium green">Login and find more</a>
 
+					</div>
 				</div>
 			</div>
-		</div>
 
-		{% block content %}
-		<h1 class="title">
-		</h1>
-		<h2 class="subtitle">
-		</h2>
-		{% endblock %}
+			{% block content %}
+			<h1 class="title">
+			</h1>
+			<h2 class="subtitle">
+			</h2>
+			{% endblock %}
 
-		<!-- /.row -->
+			<!-- /.row -->
 
-		<!-- /.container -->
-		<!-- Footer here-->
-		
-        <footer class="page-footer deep-orange lighten-5">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="grey-text text-darken-3">Contact</h5>
-                <p class="grey-text text-darken-4">You can get in touch with the creator of this website the link in the right-hand side.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="grey-text text-darken-4">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-darken-4 fa fa-instagram" href="instagram.com"></a></li>
-                  <li><a class="grey-text text-darken-4 fa fa-linkedin" href="#!"></a></li>
-                  <li><a class="grey-text text-darken-4 fa fa-facebook" href="#!"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright deep-orange darken-4">
-            <div class="container">
-            © 2020 PodvisTorcheto
-            <a onclick="topFunction()" class="grey-text text-lighten-4 right waves-effect waves-light btn deep-orange darken-1" id="myButton" title="Go to top">back to top</a>
-            </div>
-          </div>
-        </footer>
-            
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<script src="{{url_for('static', filename='ninja.js')}}"></script>
-		<script src="{{url_for('static', filename='forms.js')}}"></script>
+			<!-- /.container -->
+			<!-- Footer here-->
+
+			<footer class="page-footer deep-orange lighten-5">
+				<div class="container">
+					<div class="row">
+						<div class="col l6 s12">
+							<h5 class="grey-text text-darken-3">Contact</h5>
+							<p class="grey-text text-darken-4">You can get in touch with the creator of this website the
+								link in the right-hand side.</p>
+						</div>
+						<div class="col l4 offset-l2 s12">
+							<h5 class="grey-text text-darken-4">Links</h5>
+							<a class="grey-text text-darken-4 fa fa-instagram"
+								href="https://www.instagram.com/accounts/login/?hl=en"></a>
+							<a class="grey-text text-darken-4 fa fa-linkedin"
+								href="https://nl.linkedin.com/in/deyan-denev-a33a7b79"></a>
+							<a class="grey-text text-darken-4 fa fa-facebook" href="https://www.facebook.com/"></a>
+							<a class="grey-text text-darken-4 fa fa-github-square"
+								href="https://github.com/podvistorcheto/"></a>
+
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright deep-orange darken-4">
+					<div class="container">
+						© 2020 PodvisTorcheto
+						<a onclick="topFunction()"
+							class="grey-text text-lighten-4 right waves-effect waves-light btn deep-orange darken-1"
+							id="myButton" title="Go to top">back to top</a>
+					</div>
+				</div>
+			</footer>
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+			<script src="{{url_for('static', filename='ninja.js')}}"></script>
+			<script src="{{url_for('static', filename='forms.js')}}"></script>
 </body>
 
 </html>
