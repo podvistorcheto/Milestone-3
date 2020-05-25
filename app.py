@@ -162,7 +162,7 @@ def upload_review():
     manage_review = request.form.to_dict()
     if manage_review is None:
         return 'Please fill in all fields!'
-    return 'We sincerely apologies. This feature is under contstruction'
+    return 'We sincerely apologise. This feature is under contstruction'
 
 
 @app.route('/carta')

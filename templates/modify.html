@@ -12,7 +12,7 @@
                     {% if recipe.name == review.name %}
                     <option value="{{recipe.name}}" selected>{{recipe.name}}</option>
                     {% else %}
-                    <option value="{{review_text}}" selected>{{review_text}}</option>
+                    <option value="{{review_text}}" selected>{{recipe.name}}</option>
                     {% endif %}
                 {% endfor %}
 				<label for="icon_prefix">Leave your review here</label>
